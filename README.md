@@ -1,25 +1,34 @@
-# mesutbora.be
+# mesutbora.github.io
 
-Portfoliopagina van Mesut Bora Nodli. Eén statische HTML-pagina, geen build, geen afhankelijkheden.
+Portfoliopagina van Mesut Bora Nodli, student Toegepaste Informatica aan Odisee.
 
-## Inhoud
+Live op <https://mesutbora.github.io>
 
-    index.html        de pagina zelf
+## Projecten op de pagina
+
+**Poolboy** — mobiele app waarmee zwemscholen hun lessen, aanwezigheden en de voortgang van
+leerlingen beheren. Ionic met Vue 3 en TypeScript, backend in PHP op MySQL, eigen REST-API.
+Drie rollen en een eigen omgeving per zwemschool. Loopt in test bij een zwemschool.
+
+**BizGame** — bedrijfssimulatie waarin zes teams een drankenbedrijf runnen tegen elkaar.
+PHP en MySQL, met een Python-koppeling naar Excel waarmee docenten de spelparameters beheren.
+In gebruik bij Odisee.
+
+## Techniek
+
+Eén statische HTML-pagina. Geen build, geen frameworks, geen externe afhankelijkheden.
+Gehost op GitHub Pages vanaf de `main`-branch.
+
+    index.html        de pagina
     cv.pdf            CV, gelinkt vanaf de downloadknop
-    images/           screenshots van de projecten
+    images/           screenshots van beide projecten
 
 ## Lokaal bekijken
 
     python -m http.server 8000
 
-Daarna http://localhost:8000 openen.
+Daarna <http://localhost:8000> openen.
 
-## Screenshots vervangen
+## Contact
 
-De pagina verwacht deze bestandsnamen in `images/`:
-
-    poolboy-1.png  poolboy-2.png  poolboy-3.png     staand, gsm-formaat
-    bizgame-1.webp bizgame-2.png  bizgame-3.png  bizgame-4.png
-
-Ontbreekt er een, dan toont de pagina een gestippeld kader met de bestandsnaam
-in plaats van een kapotte afbeelding.
+berhembora@gmail.com

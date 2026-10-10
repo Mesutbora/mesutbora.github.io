@@ -73,6 +73,7 @@
   dl.facts{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14.5px}
   dl.facts dt{color:var(--blue2);font-weight:600}
   dl.facts dd{margin:0}
+  dl.facts + p{margin-top:16px}
   .note{
     margin:20px 0 0;padding:14px 16px;background:var(--tint);
     border-left:3px solid var(--blue2);border-radius:0 5px 5px 0;
@@ -109,24 +110,20 @@
 
   /* ---------- screenshots ---------- */
   .shots{list-style:none;display:grid;gap:14px;margin:24px 0 0;padding:0}
-  /* phone shots stay small so they don't dominate the section; web shots go two per row */
-  .shots--phone{grid-template-columns:repeat(3,minmax(0,168px));justify-content:start}
+  /* app shots three per row, dashboards two per row */
+  .shots--app{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
   .shots--web{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  @media (max-width:560px){
-    .shots--phone{grid-template-columns:repeat(2,minmax(0,1fr))}
-  }
   .shot{margin:0}
   .shot .frame{
     position:relative;display:block;overflow:hidden;
     border:1px solid var(--rule);border-radius:8px;background:var(--tint);
   }
   a.frame:hover{border-color:var(--blue2)}
-  .shots--phone .frame{aspect-ratio:9/16}
-  .shots--web   .frame{aspect-ratio:16/10}
+  .shots--app .frame{aspect-ratio:4/3}
+  .shots--web .frame{aspect-ratio:16/10}
   .shot img{display:block;width:100%;height:100%}
-  /* phone screenshots fill the frame; dashboards are shown whole so no data is cropped away */
-  .shots--phone img{object-fit:cover;object-position:top center}
-  .shots--web   img{object-fit:contain;object-position:center}
+  /* screenshots are shown whole, never cropped, so no interface detail is cut off */
+  .shot img{object-fit:contain;object-position:center}
   .shot figcaption{margin:7px 2px 0;color:var(--muted);font-size:13px}
   /* placeholder shown until the file exists */
   .shot.is-empty .frame{
@@ -181,9 +178,11 @@
 
     <div class="body">
       <p>
-        Zwemscholen houden hun lessen, leerlingen en aanwezigheden vaak nog bij op papier of in
-        losse Excel-bestanden. Met Poolboy doet een lesgever dat op zijn gsm, aan de rand van het
-        bad: les openen, aanwezigheden aantikken, klaar. De app loopt in test bij zwemschool
+        Zwemscholen houden hun lessen, aanwezigheden en de voortgang van hun leerlingen vaak nog
+        bij op papier of in losse Excel-bestanden. Poolboy brengt dat samen in één app, met een
+        eigen omgeving per zwemschool en drie verschillende interfaces: een beheerder plant
+        lesreeksen en weekroosters, een coach tekent lessen af en beoordeelt examens, en een
+        zwemmer ziet zijn volgende les en wat hij al kan. De app loopt in test bij zwemschool
         Aquademy en met een tweede zwemschool lopen gesprekken.
       </p>
       <p>
@@ -194,9 +193,17 @@
         <dt>App</dt>        <dd>Ionic met Vue 3 en TypeScript</dd>
         <dt>Backend</dt>    <dd>PHP met een MySQL-databank</dd>
         <dt>Koppeling</dt>  <dd>Eigen REST-API tussen app en server</dd>
-        <dt>Toegang</dt>    <dd>Rechten per rol: beheerder, coach en zwemmer</dd>
+        <dt>Toegang</dt>    <dd>Drie rollen, eigen omgeving en gegevens per zwemschool</dd>
+        <dt>Talen</dt>      <dd>Nederlands, Frans en Engels</dd>
         <dt>Platformen</dt> <dd>iOS en Android, uit dezelfde codebase</dd>
       </dl>
+
+      <p>
+        Wat erin zit: lesreeksen, weekroosters en vakantieperiodes, aanwezigheden aftekenen,
+        examens en beoordelingen, trainingsschema&rsquo;s met een oefeningenbibliotheek, voortgang
+        per vaardigheid en per zwemmer, grafieken per groep, chat in groep en één-op-één,
+        aankondigingen en pushmeldingen, betaalverzoeken en facturen, en exports per periode.
+      </p>
 
       <p class="note">
         <strong>Een keuze die ik maakte.</strong> Ik heb voor Ionic met Capacitor gekozen in plaats
@@ -207,10 +214,13 @@
       </p>
     </div>
 
-    <ul class="shots shots--phone">
-      <li class="shot"><a class="frame" href="images/poolboy-1.png" target="_blank" rel="noopener" data-file="images/poolboy-1.png"><img src="images/poolboy-1.png" alt="Poolboy: overzicht van de zwemlessen"></a><figcaption>Lessenoverzicht</figcaption></li>
-      <li class="shot"><a class="frame" href="images/poolboy-2.png" target="_blank" rel="noopener" data-file="images/poolboy-2.png"><img src="images/poolboy-2.png" alt="Poolboy: aanwezigheden aantikken per les"></a><figcaption>Aanwezigheden</figcaption></li>
-      <li class="shot"><a class="frame" href="images/poolboy-3.png" target="_blank" rel="noopener" data-file="images/poolboy-3.png"><img src="images/poolboy-3.png" alt="Poolboy: leerlingenbeheer"></a><figcaption>Leerlingen</figcaption></li>
+    <ul class="shots shots--app">
+      <li class="shot"><a class="frame" href="images/poolboy-1.png" target="_blank" rel="noopener" data-file="images/poolboy-1.png"><img src="images/poolboy-1.png" alt="Poolboy: inlogscherm met keuze tussen zwemmer, coach en admin, een clubkeuze en de talen Nederlands, Frans en Engels"></a><figcaption>Inloggen: eigen omgeving per zwemschool, drie rollen, drie talen</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-2.png" target="_blank" rel="noopener" data-file="images/poolboy-2.png"><img src="images/poolboy-2.png" alt="Poolboy beheerder: maandkalender met terugkerende lessen per groep, en knoppen voor vakanties en weekroosters"></a><figcaption>Beheerder: lesreeksen en weekroosters in de kalender</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-3.png" target="_blank" rel="noopener" data-file="images/poolboy-3.png"><img src="images/poolboy-3.png" alt="Poolboy coach: menu met examens, trainingsschema&rsquo;s, analyse, oefeningen, opvolging en rapporten"></a><figcaption>Coach: examens, trainingsschema&rsquo;s, opvolging en rapporten</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-4.png" target="_blank" rel="noopener" data-file="images/poolboy-4.png"><img src="images/poolboy-4.png" alt="Poolboy coach: weekkalender met de eigen lessen en een filter per groep"></a><figcaption>Coach: weekoverzicht van de eigen lessen</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-5.png" target="_blank" rel="noopener" data-file="images/poolboy-5.png"><img src="images/poolboy-5.png" alt="Poolboy zwemmer: startscherm met de volgende lessen, locatie en een melding"></a><figcaption>Zwemmer: volgende lessen en meldingen</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-6.png" target="_blank" rel="noopener" data-file="images/poolboy-6.png"><img src="images/poolboy-6.png" alt="Poolboy zwemmer: voortgang per vaardigheid, met per vaardigheid de datum waarop het lukte"></a><figcaption>Zwemmer: voortgang per vaardigheid</figcaption></li>
     </ul>
 
     <div class="demo">
