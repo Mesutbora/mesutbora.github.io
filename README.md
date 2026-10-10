@@ -2,7 +2,7 @@
 
 ## → **https://mesutbora.github.io**
 
-Portfolio van Mesut Bora Nodli, student Toegepaste Informatica aan Odisee.
+Portfolio van Mesut Bora, student Toegepaste Informatica aan Odisee.
 Full-stack en mobiele ontwikkeling.
 
 ## Projecten
