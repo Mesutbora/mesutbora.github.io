@@ -1,33 +1,25 @@
 # mesutbora.github.io
 
-Portfoliopagina van Mesut Bora Nodli, student Toegepaste Informatica aan Odisee.
+## → **https://mesutbora.github.io**
 
-Live op <https://mesutbora.github.io>
+Portfolio van Mesut Bora Nodli, student Toegepaste Informatica aan Odisee.
+Full-stack en mobiele ontwikkeling.
 
-## Projecten op de pagina
+## Projecten
 
 **Poolboy** — mobiele app waarmee zwemscholen hun lessen, aanwezigheden en de voortgang van
 leerlingen beheren. Ionic met Vue 3 en TypeScript, backend in PHP op MySQL, eigen REST-API.
-Drie rollen en een eigen omgeving per zwemschool. Loopt in test bij een zwemschool.
+Drie rollen met elk een eigen interface, een eigen omgeving per zwemschool, in het Nederlands,
+Frans en Engels. Loopt in test bij een zwemschool. Werkende demo op <https://mesutbora.be>
 
 **BizGame** — bedrijfssimulatie waarin zes teams een drankenbedrijf runnen tegen elkaar.
 PHP en MySQL, met een Python-koppeling naar Excel waarmee docenten de spelparameters beheren.
-In gebruik bij Odisee.
+In gebruik bij Odisee op <https://bizgame.odisee.be>, door ongeveer 100 studenten en 8 docenten.
 
-## Techniek
+## Over deze repo
 
-Eén statische HTML-pagina. Geen build, geen frameworks, geen externe afhankelijkheden.
-Gehost op GitHub Pages vanaf de `main`-branch.
-
-    index.html        de pagina
-    cv.pdf            CV, gelinkt vanaf de downloadknop
-    images/           screenshots van beide projecten
-
-## Lokaal bekijken
-
-    python -m http.server 8000
-
-Daarna <http://localhost:8000> openen.
+De bronbestanden van de pagina hierboven. Eén statische HTML-pagina, geen build en geen
+externe afhankelijkheden, gehost op GitHub Pages vanaf `main`.
 
 ## Contact
 
