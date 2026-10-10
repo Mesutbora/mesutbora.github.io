@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesut Bora Nodli</title>
+<meta name="description" content="Student Toegepaste Informatica. Twee projecten: Poolboy, een app voor zwemscholen, en BizGame, een bedrijfssimulatie voor Odisee.">
+<style>
+  :root{
+    color-scheme: light;
+    --navy:#123A52;
+    --blue:#114C73;
+    --blue2:#326480;
+    --title:#14374F;
+    --ink:#26313B;
+    --muted:#5A6975;
+    --rule:#DDE6EC;
+    --tint:#F6F9FB;
+    --bg:#FFFFFF;
+    --max:860px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font:400 16px/1.6 "Segoe UI",Calibri,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+  a{color:var(--blue)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--blue2);outline-offset:3px;border-radius:3px}
+
+  /* ---------- header ---------- */
+  header{padding:48px 0 28px}
+  h1{
+    margin:0 0 6px;
+    font-size:clamp(28px,6vw,40px);
+    line-height:1.1;
+    letter-spacing:-.01em;
+    color:var(--navy);
+  }
+  .tagline{margin:0 0 18px;color:var(--blue2);font-weight:600;font-size:clamp(15px,2.6vw,17px)}
+  .meta{margin:0;color:var(--muted);font-size:14.5px}
+  .meta a{color:var(--muted);text-decoration-color:var(--rule)}
+  .meta span{white-space:nowrap}
+  .sep{color:var(--rule);padding:0 8px}
+  .intro{margin:20px 0 0;max-width:62ch;color:var(--ink)}
+
+  /* ---------- buttons ---------- */
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+  .btn{
+    display:inline-block;padding:9px 16px;border-radius:6px;
+    font-size:14.5px;font-weight:600;text-decoration:none;
+    border:1px solid var(--blue);color:#fff;background:var(--blue);
+  }
+  .btn:hover{background:var(--navy);border-color:var(--navy)}
+  .btn--ghost{background:transparent;color:var(--blue)}
+  .btn--ghost:hover{background:var(--tint);border-color:var(--blue);color:var(--navy)}
+  .btn[aria-disabled="true"]{
+    background:var(--tint);border-color:var(--rule);color:var(--muted);
+    cursor:not-allowed;pointer-events:none;
+  }
+
+  /* ---------- project ---------- */
+  .project{padding:40px 0;border-top:1px solid var(--rule)}
+  .project h2{
+    margin:0 0 4px;font-size:clamp(20px,4vw,24px);line-height:1.2;color:var(--title);
+  }
+  .kicker{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+  .body{max-width:62ch}
+  .body p{margin:0 0 14px}
+  dl.facts{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14.5px}
+  dl.facts dt{color:var(--blue2);font-weight:600}
+  dl.facts dd{margin:0}
+  .note{
+    margin:20px 0 0;padding:14px 16px;background:var(--tint);
+    border-left:3px solid var(--blue2);border-radius:0 5px 5px 0;
+    font-size:15px;max-width:62ch;
+  }
+  .note strong{color:var(--blue)}
+  .caveat{margin:10px 2px 0;max-width:62ch;color:var(--muted);font-size:13.5px}
+
+  /* ---------- demo access ---------- */
+  .demo{
+    margin:26px 0 0;max-width:62ch;padding:18px 20px;
+    background:var(--tint);border:1px solid var(--rule);border-radius:8px;
+  }
+  .demo__lead{margin:0 0 8px;font-weight:700;color:var(--blue);font-size:16px}
+  .demo__text{margin:0;font-size:15px}
+  .demo__creds{
+    margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;
+    align-items:center;font-size:14.5px;
+  }
+  .demo__creds dt{color:var(--blue2);font-weight:600}
+  .demo__creds dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .demo__creds code{
+    font-family:ui-monospace,Consolas,monospace;font-size:13.5px;
+    background:#fff;border:1px solid var(--rule);border-radius:4px;padding:3px 8px;
+    word-break:break-all;
+  }
+  .demo__note{color:var(--muted);font-size:13px}
+  .demo__hint{margin:12px 0 0}
+  .demo .actions{margin:16px 0 0}
+  @media (max-width:430px){
+    .demo__creds{grid-template-columns:1fr;gap:3px}
+    .demo__creds dt{margin-top:8px}
+  }
+
+  /* ---------- screenshots ---------- */
+  .shots{list-style:none;display:grid;gap:14px;margin:24px 0 0;padding:0}
+  /* phone shots stay small so they don't dominate the section; web shots go two per row */
+  .shots--phone{grid-template-columns:repeat(3,minmax(0,168px));justify-content:start}
+  .shots--web{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  @media (max-width:560px){
+    .shots--phone{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  .shot{margin:0}
+  .shot .frame{
+    position:relative;display:block;overflow:hidden;
+    border:1px solid var(--rule);border-radius:8px;background:var(--tint);
+  }
+  a.frame:hover{border-color:var(--blue2)}
+  .shots--phone .frame{aspect-ratio:9/16}
+  .shots--web   .frame{aspect-ratio:16/10}
+  .shot img{display:block;width:100%;height:100%}
+  /* phone screenshots fill the frame; dashboards are shown whole so no data is cropped away */
+  .shots--phone img{object-fit:cover;object-position:top center}
+  .shots--web   img{object-fit:contain;object-position:center}
+  .shot figcaption{margin:7px 2px 0;color:var(--muted);font-size:13px}
+  /* placeholder shown until the file exists */
+  .shot.is-empty .frame{
+    border-style:dashed;pointer-events:none;
+    display:grid;place-items:center;
+    padding:12px;text-align:center;
+  }
+  .shot.is-empty img{display:none}
+  .shot.is-empty .frame::after{
+    content:attr(data-file);
+    color:var(--muted);font-size:12.5px;font-family:ui-monospace,Consolas,monospace;
+    word-break:break-all;line-height:1.5;
+  }
+
+  /* ---------- footer ---------- */
+  footer{padding:36px 0 56px;border-top:1px solid var(--rule);color:var(--muted);font-size:14.5px}
+  footer p{margin:0 0 8px}
+
+  @media print{
+    .actions{display:none}
+    body{font-size:12pt}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1>Mesut Bora Nodli</h1>
+    <p class="tagline">Student Toegepaste Informatica, 3e bachelor &middot; Full-stack en mobiele ontwikkeling</p>
+    <p class="meta">
+      <span><a href="tel:+32471943465">0471 94 34 65</a></span><span class="sep">|</span>
+      <span><a href="mailto:berhembora@gmail.com">berhembora@gmail.com</a></span><span class="sep">|</span>
+      <span>1083 Ganshoren, Brussel</span>
+    </p>
+    <p class="intro">
+      Ik bouw web- en mobiele apps van databank tot interface. Hieronder staan de twee projecten
+      waar ik het meest aan gewerkt heb: een app die bij een zwemschool in test loopt, en een
+      simulatiespel dat Odisee in de les gebruikt. Bij elk staan screenshots uit de draaiende
+      toepassing en een korte uitleg over waar het werk zat.
+    </p>
+    <p class="actions">
+      <a class="btn" href="cv.pdf">CV downloaden (PDF)</a>
+    </p>
+  </header>
+
+  <!-- ===================== POOLBOY ===================== -->
+  <section class="project" id="poolboy">
+    <h2>Poolboy</h2>
+    <p class="kicker">Mobiele app voor zwemscholen &middot; eigen project &middot; sinds eind 2025</p>
+
+    <div class="body">
+      <p>
+        Zwemscholen houden hun lessen, leerlingen en aanwezigheden vaak nog bij op papier of in
+        losse Excel-bestanden. Met Poolboy doet een lesgever dat op zijn gsm, aan de rand van het
+        bad: les openen, aanwezigheden aantikken, klaar. De app loopt in test bij zwemschool
+        Aquademy en met een tweede zwemschool lopen gesprekken.
+      </p>
+      <p>
+        Ik heb het volledige project alleen gebouwd, van de databank tot de interface.
+      </p>
+
+      <dl class="facts">
+        <dt>App</dt>        <dd>Ionic met Vue 3 en TypeScript</dd>
+        <dt>Backend</dt>    <dd>PHP met een MySQL-databank</dd>
+        <dt>Koppeling</dt>  <dd>Eigen REST-API tussen app en server</dd>
+        <dt>Toegang</dt>    <dd>Rechten per rol: beheerder, coach en zwemmer</dd>
+        <dt>Platformen</dt> <dd>iOS en Android, uit dezelfde codebase</dd>
+      </dl>
+
+      <p class="note">
+        <strong>Een keuze die ik maakte.</strong> Ik heb voor Ionic met Capacitor gekozen in plaats
+        van twee native apps. Als alleenbouwer kon ik zo iOS en Android uit dezelfde codebase
+        bedienen: een wijziging aan de aanwezigheidsweergave moest ik maar één keer schrijven.
+        De prijs daarvoor is dat ik verder van de native API&rsquo;s sta, en dat was voor deze app
+        een prijs die ik kon betalen.
+      </p>
+    </div>
+
+    <ul class="shots shots--phone">
+      <li class="shot"><a class="frame" href="images/poolboy-1.png" target="_blank" rel="noopener" data-file="images/poolboy-1.png"><img src="images/poolboy-1.png" alt="Poolboy: overzicht van de zwemlessen"></a><figcaption>Lessenoverzicht</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-2.png" target="_blank" rel="noopener" data-file="images/poolboy-2.png"><img src="images/poolboy-2.png" alt="Poolboy: aanwezigheden aantikken per les"></a><figcaption>Aanwezigheden</figcaption></li>
+      <li class="shot"><a class="frame" href="images/poolboy-3.png" target="_blank" rel="noopener" data-file="images/poolboy-3.png"><img src="images/poolboy-3.png" alt="Poolboy: leerlingenbeheer"></a><figcaption>Leerlingen</figcaption></li>
+    </ul>
+
+    <div class="demo">
+      <p class="demo__lead">Probeer de app zelf</p>
+      <p class="demo__text">
+        Op <a href="https://mesutbora.be">mesutbora.be</a> staat Poolboy klaar met een
+        demo-zwemschool. Alle leerlingen, lessen en aanwezigheden daarin zijn verzonnen: er staan
+        geen gegevens van echte zwemscholen of echte kinderen in.
+      </p>
+      <p class="demo__text demo__hint">
+        Er staan drie accounts klaar, elk met andere rechten. Log in met alle drie en je ziet
+        hoe de app per rol iets anders toont.
+      </p>
+      <dl class="demo__creds">
+        <dt>Beheerder</dt>  <dd><code>pieter.vermeulen@dezeehond.invalid</code></dd>
+        <dt>Coach</dt>      <dd><code>thomas.maes@dezeehond.invalid</code></dd>
+        <dt>Zwemmer</dt>    <dd><code>tine.vanacker@dezeehond.invalid</code></dd>
+        <dt>Wachtwoord</dt> <dd><code>Zeehond-ade01a17!</code> <span class="demo__note">voor alle drie</span></dd>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="https://mesutbora.be">Demo openen</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== BIZGAME ===================== -->
+  <section class="project" id="bizgame">
+    <h2>BizGame</h2>
+    <p class="kicker">Bedrijfssimulatie voor Odisee &middot; full-stack developer &middot; sinds april 2026</p>
+
+    <div class="body">
+      <p>
+        BizGame is een simulatiespel waarin zes teams een drankenbedrijf runnen tegen elkaar. Elke
+        ronde beslist een team over verkoopprijs, productie, voorraad, marketing, personeel en
+        investeringen in R&amp;D, voor twee producten en twee verkoopkanalen. Daarna rekent het spel
+        de ronde door en zien de teams wat hun keuzes opgebracht hebben.
+      </p>
+      <p>
+        We bouwden het in een team van vier voor het vak Integration Project. Na het vak vroegen de
+        docenten van Bedrijf en Organisatie en Odisee of ik het alleen verder kon ontwikkelen, en
+        dat doe ik sindsdien. Ongeveer 100 studenten en 8 docenten gebruiken het nu.
+      </p>
+
+      <p class="note">
+        <strong>Waar het werk zit.</strong> De interface is een gewone webtoepassing. Het moeilijke
+        deel is de berekening eronder. Een team kan niet apart doorgerekend worden, want
+        marktaandeel is relatief: wat jouw bedrijf deze ronde verdient, hangt af van wat de vijf
+        andere teams beslist hebben. Elke ronde wordt de hele markt in één keer opgelost. De vraag
+        wordt verdeeld over zes aanbieders, afgetoetst aan wat elk team werkelijk op voorraad
+        heeft, en daarna uit elkaar gehaald in gewenste verkoop, werkelijke verkoop,
+        opportuniteitsverkopen en niet-gerealiseerde vraag. Dat alles per product en per kanaal,
+        en bovenop regels zoals een maximale prijswijziging van 8&nbsp;% per ronde en de kwaliteit
+        van je verkoopteam tegenover het spelgemiddelde. Eén fout in die keten en de stand van
+        zes teams klopt niet meer.
+      </p>
+
+      <dl class="facts">
+        <dt>Simulatie</dt> <dd>6 teams, 2 producten, 2 verkoopkanalen, 10+ rondes</dd>
+        <dt>Rekenwerk</dt> <dd>Markt per ronde in één keer opgelost, met voorraadbeperking</dd>
+        <dt>Backend</dt>   <dd>PHP met een MySQL-databank</dd>
+        <dt>Frontend</dt>  <dd>JavaScript, HTML en CSS</dd>
+        <dt>Beheer</dt>    <dd>Python-koppeling naar Excel voor de docenten</dd>
+      </dl>
+
+      <p class="note">
+        <strong>Een keuze die ik maakte.</strong> De docenten moesten elk semester de
+        spelparameters kunnen aanpassen, maar ze zijn geen programmeurs. In plaats van een
+        beheersinterface te bouwen, heb ik met Python een Excel-bestand aan de applicatie
+        gekoppeld: één knop leest hun Excel in, één knop schrijft de resultaten terug. Ze werken
+        dus in het programma dat ze al kenden, en ik hoef niet bij elke aanpassing tussen te komen.
+      </p>
+    </div>
+
+    <ul class="shots shots--web">
+      <li class="shot"><a class="frame" href="images/bizgame-1.webp" target="_blank" rel="noopener" data-file="images/bizgame-1.webp"><img src="images/bizgame-1.webp" alt="BizGame: invoerscherm van een ronde met verkoopprijs, R&amp;D-investeringen en de cumulatieve cijfers van het team"></a><figcaption>Beslissingen per ronde: prijs, R&amp;D en investeringen</figcaption></li>
+      <li class="shot"><a class="frame" href="images/bizgame-2.png" target="_blank" rel="noopener" data-file="images/bizgame-2.png"><img src="images/bizgame-2.png" alt="BizGame: analyses met grafieken van marktaandeel in afzet en omzet, en effectieve tegenover gewenste verkoop"></a><figcaption>Analyses: marktaandeel en verkoop per kanaal</figcaption></li>
+      <li class="shot"><a class="frame" href="images/bizgame-3.png" target="_blank" rel="noopener" data-file="images/bizgame-3.png"><img src="images/bizgame-3.png" alt="BizGame: resultaten met gewenste tegenover werkelijke winst per kanaal en per product"></a><figcaption>Gewenste tegenover werkelijke winst per kanaal</figcaption></li>
+      <li class="shot"><a class="frame" href="images/bizgame-4.png" target="_blank" rel="noopener" data-file="images/bizgame-4.png"><img src="images/bizgame-4.png" alt="BizGame: totaalstand van de zes teams en de resultaten van ronde 1"></a><figcaption>Totaalstand en ronderesultaten van de zes teams</figcaption></li>
+    </ul>
+
+    <p class="actions">
+      <a class="btn" href="https://bizgame.odisee.be">bizgame.odisee.be bekijken</a>
+    </p>
+    <p class="caveat">
+      Inloggen is voorbehouden aan studenten en docenten van Odisee, dus de site is wel bereikbaar
+      maar niet te gebruiken. De screenshots hierboven komen uit de draaiende toepassing; klik erop
+      om ze op volle grootte te bekijken.
+    </p>
+  </section>
+
+  <footer>
+    <p>Nederlands en Frans op moedertaalniveau, Engels zeer goed, Turks en Koerdisch moedertaal.</p>
+    <p>Beschikbaar op woensdag de hele dag en op donderdag, vrijdag en zaterdag vanaf de namiddag.</p>
+    <p><a href="mailto:berhembora@gmail.com">berhembora@gmail.com</a> &middot; <a href="tel:+32471943465">0471 94 34 65</a></p>
+  </footer>
+
+</div>
+
+<script>
+  // Mark a screenshot slot as empty until the image file is dropped into images/.
+  // Keeps the layout intact instead of showing a broken-image icon.
+  for (const img of document.querySelectorAll('.shot img')) {
+    const markEmpty = () => img.closest('.shot').classList.add('is-empty');
+    if (img.complete && img.naturalWidth === 0) markEmpty();
+    img.addEventListener('error', markEmpty);
+  }
+</script>
+
+</body>
+</html>
